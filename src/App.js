@@ -15,8 +15,8 @@ import CreateSurvey from "./components/CreateSurvey";
 import SurveyDetails from "./components/SurveyDetails";
 import SurveyCompleted from "./components/SurveyCompleted";
 import Auth from "./components/Auth";
-import "./App.css"; // Import CSS file
-import teamLogo from "./team_logo.png"; // Import logo
+import "./styles.css";
+import teamLogo from "./team_logo.png";
 
 const App = () => {
   const navigate = useNavigate();
@@ -35,7 +35,6 @@ const App = () => {
       <header>
         <div className="logo">
           <img src={teamLogo} alt="Team Logo" />
-          <span>SurveySphere</span>
         </div>
         <ul className="nav-links">
           <li>
@@ -52,33 +51,37 @@ const App = () => {
           </li>
           {isAuthenticated() && (
             <li>
-              <button onClick={handleLogout}>Sign Out</button>
+              <Link to="/login" onClick={handleLogout}>
+                Sign Out
+              </Link>
             </li>
           )}
         </ul>
       </header>
-      <div className="main-frame">
-        <div className="frame">
-          <div className="login">
-            <Routes>
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route
-                path="/profile"
-                element={isAuthenticated() ? <UserProfile /> : <Auth />}
-              />
-              <Route
-                path="/surveys"
-                element={isAuthenticated() ? <SurveyList /> : <Auth />}
-              />
-              <Route
-                path="/create-survey"
-                element={isAuthenticated() ? <CreateSurvey /> : <Auth />}
-              />
-              <Route path="/surveys/:id" element={<SurveyDetails />} />
-              <Route path="/survey-completed" element={<SurveyCompleted />} />
-              <Route path="/" element={<HomePage />} />
-            </Routes>
+      <div className="main-content">
+        <div className="centered-content">
+          <div className="frame">
+            <div className="login">
+              <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route
+                  path="/profile"
+                  element={isAuthenticated() ? <UserProfile /> : <Auth />}
+                />
+                <Route
+                  path="/surveys"
+                  element={isAuthenticated() ? <SurveyList /> : <Auth />}
+                />
+                <Route
+                  path="/create-survey"
+                  element={isAuthenticated() ? <CreateSurvey /> : <Auth />}
+                />
+                <Route path="/surveys/:id" element={<SurveyDetails />} />
+                <Route path="/survey-completed" element={<SurveyCompleted />} />
+                <Route path="/" element={<HomePage />} />
+              </Routes>
+            </div>
           </div>
         </div>
       </div>

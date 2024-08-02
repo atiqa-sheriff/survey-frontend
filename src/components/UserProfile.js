@@ -85,19 +85,24 @@ function UserProfile() {
   }
 
   return (
-    <div>
-      <h1>{user.name}'s Profile</h1>
-      <h2>Your Surveys</h2>
-      <ul>
+    <div className="profile-container">
+      <h1 className="title">{user.name}'s Profile</h1>
+      <h2 className="subheading">Your Surveys</h2>
+      <ul id="survey-list">
         {surveys.map((survey) => (
           <li key={survey._id}>
             <Link to={`/surveys/${survey._id}`}>{survey.title}</Link>
-            <button onClick={() => deleteSurvey(survey._id)}>Delete</button>
+            <span
+              className="delete-link"
+              onClick={() => deleteSurvey(survey._id)}
+            >
+              Delete
+            </span>
           </li>
         ))}
       </ul>
       <Link to="/create-survey">
-        <button>Create New Survey</button>
+        <button className="submit">Create New Survey</button>
       </Link>
     </div>
   );

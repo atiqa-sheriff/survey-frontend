@@ -1,105 +1,397 @@
+@import url("https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&family=Playwrite+AR:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 body {
-  font-family: Arial, sans-serif;
-}
-
-nav ul {
-  list-style: none;
+  font-family: gupter, sans-serif;
+  background-color: #f8f8fa;
+  color: #011f4b;
+  margin: 0;
   padding: 0;
+  text-align: center;
+  box-sizing: border-box;
 }
 
-nav ul li {
-  display: inline;
-  margin-right: 10px;
+h1,
+h2,
+h3 {
+  margin: 20px 0;
 }
 
-nav ul li a {
+button {
+  background-color: #175e57;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  align-items: center;
+  margin: 10px 10px 10px 17px;
+}
+
+button:hover {
+  background-color: #0d3d3b;
+}
+
+a {
+  color: #011f4b;
   text-decoration: none;
-  color: #007bff;
 }
 
-nav ul li a:hover {
+a:hover {
   text-decoration: underline;
 }
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+
+p {
+  margin-top: 1rem;
 }
 
-.container {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 400px;
+/* Header styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #aad3e3;
+  padding: 1rem 2rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 80px;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Main content adjustment */
+.main-content {
+  padding-top: 100px;
+}
+/* SurveySphere title */
+.title {
+  font-size: 5rem;
+  color: #001f3f;
+  margin-top: 0;
+  padding-top: 50px;
   text-align: center;
 }
 
-h1 {
+.subheading {
+  font-size: 3rem;
+  color: #4d918f;
+  margin-top: 10px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+/* Auth form styles */
+.auth-form {
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.auth-form h2 {
+  text-align: center;
   margin-bottom: 20px;
 }
 
-label {
-  display: block;
-  text-align: left;
-  margin-bottom: 5px;
+.auth-form form {
+  width: 100%;
 }
 
-input[type="text"],
-textarea {
-  width: calc(100% - 20px);
-  padding: 10px;
+.auth-form form div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.auth-form form label {
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+}
+
+.auth-form form input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #005b96;
+  border-width: 2px;
   border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+.submit {
+  width: 100%;
+  max-width: 400px;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #49ab81;
+  font-family: gupter;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #fdfff1;
+  font-weight: bold;
+  justify-content: center;
+}
+
+/* Error message */
+.error-message {
+  color: red;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Centering content */
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Survey form styles */
+.container {
+  padding: 20px;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  margin-top: -100px;
+  font-size: 50px;
+}
+
+#survey-form-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+#survey-form {
+  width: 50%;
+  margin-top: 2rem;
+}
+
+#survey-form label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+#survey-form input[type="text"],
+#survey-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px;
+  border: 2px solid #005b96;
+  border-radius: 7px;
+  box-sizing: border-box;
+}
+
+.question-item {
+  margin: 20px 0;
+}
+
+.question {
+  color: #d41243;
+}
+
+.option-item {
+  margin: 10px 0;
+}
+
+.option-container {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.add-option,
+.delete-option,
+.delete-question,
+.add-question {
+  background: none;
+  border: none;
+  color: #175e57;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.add-option:hover,
+.delete-option:hover,
+.delete-question:hover,
+.add-question:hover {
+  text-decoration: underline;
 }
 
 .buttons-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
+.create-survey-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.dynamic-margin-top {
+  transition: margin-top 0.3s;
+}
+
+/* Shared action link styles */
+.action-link {
+  background: none;
   border: none;
-  border-radius: 4px;
-  color: #fff;
+  color: #175e57;
   cursor: pointer;
-  margin: 5px;
-  width: calc(100% - 40px);
+  padding: 0;
+  text-decoration: none;
+  font-size: 1em;
 }
 
-button:hover {
-  background-color: #0056b3;
+.action-link:hover {
+  text-decoration: underline;
 }
 
-#survey-form {
+.add-link {
+  color: green;
+  font-size: 15px;
+  margin-left: auto;
+}
+
+.delete-link {
+  color: red;
+  font-size: 15px;
+  margin-left: 2px;
+  text-decoration: none;
+}
+
+.delete-link:hover {
+  text-decoration: underline;
+}
+
+.option-actions,
+.question-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+.option-actions .action-link {
+  margin-left: 5px;
+}
+
+.question-actions {
+  justify-content: space-between;
+}
+
+.centered-buttons {
+  justify-content: center;
+  gap: 60px;
+}
+
+/* Survey List */
+
+#survey-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 190px;
+  margin-right: 190px;
+  font-size: 25px;
+}
+
+#survey-list {
+  list-style-type: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+/* Survey Completed Page */
+p {
+  font-size: 25px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: #d41243;
+}
+
+.survey-completed-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 40px;
 }
 
-.option-container,
-.question-item {
+.email-input-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-button.delete-option,
-button.add-option,
-button.delete-question {
-  width: calc(100% - 40px);
-}
-
-.buttons-container button {
+  align-items: flex-start;
+  margin-bottom: 20px;
   width: 100%;
+  max-width: 500px;
+  text-align: left;
+  margin-left: -9rem;
+}
+
+.email-input-container label {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.email-input-container input {
+  width: 40rem;
+  height: 100px;
+  padding: 10px;
+  border: 2px solid #005b96;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-left: 28px;
+  margin-top: 20px;
 }

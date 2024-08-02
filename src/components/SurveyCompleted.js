@@ -33,15 +33,20 @@ function SurveyCompleted() {
   };
 
   return (
-    <div>
-      <h1>Survey Completed</h1>
+    <div className="survey-completed-container">
+      <h1 className="title">Survey Completed</h1>
       <p>Your survey has been successfully created!</p>
-      <div>
-        <label>Email Address:</label>
+      <div className="email-input-container">
+        <label>Email Addresses:</label>
         <input type="email" value={email} onChange={handleEmailChange} />
-        <button onClick={handleShare}>Share Survey</button>
       </div>
-      <button onClick={handleBackToProfile}>Back to Profile</button>
+
+      <button className="submit" onClick={handleShare}>
+        Share Survey
+      </button>
+      <button className="submit" onClick={handleBackToProfile}>
+        Back to Profile
+      </button>
     </div>
   );
 }

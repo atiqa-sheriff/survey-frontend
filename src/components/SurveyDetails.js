@@ -111,70 +111,89 @@ function SurveyDetails() {
   }
 
   return (
-    <div>
-      <h1>Edit Survey</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
-          <input
-            type="text"
-            value={survey.title}
-            onChange={(e) => setSurvey({ ...survey, title: e.target.value })}
-            required
-          />
-        </div>
-        <div>
-          <label>Description:</label>
-          <textarea
-            value={survey.description}
-            onChange={(e) =>
-              setSurvey({ ...survey, description: e.target.value })
-            }
-            required
-          />
-        </div>
-        {survey.questions.map((question, qIndex) => (
-          <div key={qIndex}>
-            <label>Question {qIndex + 1}:</label>
+    <div className="container dynamic-margin-top">
+      <h1 className="title">Edit Survey</h1>
+      <div id="survey-form-wrapper">
+        <form id="survey-form" onSubmit={handleSubmit}>
+          <div>
+            <label>Survey Title:</label>
             <input
               type="text"
-              value={question.text}
-              onChange={(e) => handleQuestionChange(qIndex, e)}
+              value={survey.title}
+              onChange={(e) => setSurvey({ ...survey, title: e.target.value })}
               required
             />
-            {question.options.map((option, oIndex) => (
-              <div key={oIndex}>
-                <label>Option {oIndex + 1}:</label>
-                <input
-                  type="text"
-                  value={option}
-                  onChange={(e) => handleOptionChange(qIndex, oIndex, e)}
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => deleteOption(qIndex, oIndex)}
+          </div>
+          <div>
+            <label>Survey Description:</label>
+            <textarea
+              value={survey.description}
+              onChange={(e) =>
+                setSurvey({ ...survey, description: e.target.value })
+              }
+              required
+            />
+          </div>
+          {survey.questions.map((question, qIndex) => (
+            <div key={qIndex} className="question-item">
+              <label className="question">Question {qIndex + 1}:</label>
+              <input
+                type="text"
+                value={question.text}
+                onChange={(e) => handleQuestionChange(qIndex, e)}
+                required
+              />
+              <div className="question-actions">
+                <span
+                  className="action-link delete-link"
+                  onClick={() => deleteQuestion(qIndex)}
                 >
-                  Delete Option
-                </button>
+                  Delete Question
+                </span>
+                <span
+                  className="action-link add-link"
+                  onClick={() => addQuestion()}
+                >
+                  Add Question
+                </span>
               </div>
-            ))}
-            <button type="button" onClick={() => addOption(qIndex)}>
-              Add Option
+              {question.options.map((option, oIndex) => (
+                <div key={oIndex} className="option-item">
+                  <label>Option {oIndex + 1}:</label>
+                  <input
+                    type="text"
+                    value={option}
+                    onChange={(e) => handleOptionChange(qIndex, oIndex, e)}
+                    required
+                  />
+                  <div className="option-actions">
+                    <span
+                      className="action-link delete-link"
+                      onClick={() => deleteOption(qIndex, oIndex)}
+                    >
+                      Delete Option
+                    </span>
+                    <span
+                      className="action-link add-link"
+                      onClick={() => addOption(qIndex)}
+                    >
+                      Add Option
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+          <div className="buttons-container centered-buttons">
+            <button className="submit" type="submit">
+              Create Survey
             </button>
-            <button type="button" onClick={() => deleteQuestion(qIndex)}>
-              Delete Question
+            <button className="submit" type="button" onClick={handleGoBack}>
+              Go Back to Profile
             </button>
           </div>
-        ))}
-        <button type="button" onClick={addQuestion}>
-          Add Question
-        </button>
-        <button type="submit">Create Survey</button>
-        <button type="button" onClick={handleGoBack}>
-          Go Back to Profile
-        </button>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }

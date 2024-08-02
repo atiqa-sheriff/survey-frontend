@@ -47,46 +47,56 @@ function Auth() {
   };
 
   return (
-    <div>
-      <h1>{isLogin ? "Login" : "Sign Up"}</h1>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        {!isLogin && (
+    <div className="page-content">
+      <h1 className="title">SurveySphere</h1>
+      <h2 className="subheading">{isLogin ? "Login" : "Sign Up"}</h2>
+      {error && <p className="error-message">{error}</p>}
+      <div className="auth-form">
+        <form onSubmit={handleSubmit}>
+          {!isLogin && (
+            <div>
+              <label htmlFor="name">Name:</label>
+              <input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required={!isLogin}
+              />
+            </div>
+          )}
           <div>
-            <label>Name:</label>
+            <label htmlFor="email">Email:</label>
             <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required={!isLogin}
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
-        )}
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">{isLogin ? "Login" : "Sign Up"}</button>
-      </form>
-      <button onClick={() => setIsLogin(!isLogin)}>
-        {isLogin ? "Need an account? Sign Up" : "Have an account? Login"}
-      </button>
+          <div>
+            <label htmlFor="password">Password:</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button className="submit" type="submit">
+            {isLogin ? "Login" : "Sign Up"}
+          </button>
+
+          <button className="submit" onClick={() => setIsLogin(!isLogin)}>
+            {isLogin
+              ? "Don't have an account? Sign Up"
+              : "Have an account? Login"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
-
 export default Auth;
